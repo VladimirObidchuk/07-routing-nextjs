@@ -3,14 +3,18 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 
-import Loading from "../loading";
 import NotesPage from "@/components/NotesPage/NotesPage";
 import NoteList from "@/components/NoteList/NoteList";
-import { getNotes } from "@/lib/api";
+import { getNotes, GetNotesParams } from "@/lib/api";
 import { NoteListResponse } from "@/types/note";
 import Error from "./error";
+import Loading from "@/app/loading";
 
-const Notes = () => {
+type NoteProps = {
+  tag?: GetNotesParams["tag"];
+};
+
+const Notes = ({ tag }: NoteProps) => {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
 
@@ -22,6 +26,7 @@ const Notes = () => {
         perPage: 10,
         search,
         sortBy: "created",
+        ...(tag ? { tag } : {}),
       }),
     placeholderData: keepPreviousData,
   });
