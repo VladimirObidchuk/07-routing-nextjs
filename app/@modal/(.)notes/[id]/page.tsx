@@ -17,7 +17,7 @@ export default function NoteModal({ params }: Props) {
 
   return (
     <Modal onClose={handleClose}>
-      <Details />
+      <Details onClose={handleClose} />
     </Modal>
   );
 }

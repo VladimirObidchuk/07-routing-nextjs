@@ -1,15 +1,19 @@
 "use client";
 
 import Loading from "@/app/loading";
-import NoteDetails from "@/components/NoteDetails/NoteDetails";
 import { fetchNoteById } from "@/lib/api";
 import { Note } from "@/types/note";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "next/navigation";
 import React from "react";
 import Error from "./error";
+import NotePreview from "@/components/NotePreview/NotePreview";
 
-const Details = () => {
+type Props = {
+  onClose: () => void;
+};
+
+const Details = ({ onClose }: Props) => {
   const params = useParams();
   const noteId = params.id as string;
 
@@ -23,7 +27,7 @@ const Details = () => {
   if (!data) return <p>No note found</p>;
   return (
     <>
-      <NoteDetails data={data} />
+      <NotePreview data={data} onClose={onClose} />
     </>
   );
 };

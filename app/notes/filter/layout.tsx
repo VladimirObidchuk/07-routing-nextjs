@@ -3,13 +3,8 @@ type Props = {
   sidebar: React.ReactNode;
 };
 
-const NotesLayout = ({ children, sidebar }: Props) => {
-  return (
-    <section>
-      <aside>{sidebar}</aside>
-      <div>{children}</div>
-    </section>
-  );
+const NotesLayout = ({ children }: Props) => {
+  return <section>{children}</section>;
 };
 
 export default NotesLayout;

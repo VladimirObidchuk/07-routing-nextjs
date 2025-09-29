@@ -9,6 +9,9 @@ import Pagination from "../Pagination/Pagination";
 import Modal from "../Modal/Modal";
 import NoteForm from "../NoteForm/NoteForm";
 import { NoteListResponse } from "@/types/note";
+import LayoutNotes from "../LayoutNotes/LayoutNotes";
+import SidebarNotes from "../SidebarNotes/SidebarNotes";
+import NoteList from "../NoteList/NoteList";
 
 type Props = {
   data: NoteListResponse;
@@ -18,7 +21,7 @@ type Props = {
   setSearch: (search: string) => void;
 };
 
-const NotesPage = ({ data, children, setPage, setSearch }: Props) => {
+const NotesPage = ({ data, setPage, setSearch }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <div className={css.app}>
@@ -32,8 +35,14 @@ const NotesPage = ({ data, children, setPage, setSearch }: Props) => {
           onClick={() => setIsModalOpen(true)}
         />
       </div>
+      <LayoutNotes sidebar={<SidebarNotes />}>
+        {data.notes.length > 0 ? (
+          <NoteList notes={data.notes} />
+        ) : (
+          <p>No notes found.</p>
+        )}
+      </LayoutNotes>
 
-      {children}
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
           <NoteForm
