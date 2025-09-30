@@ -17,7 +17,6 @@ type Props = {
   data: NoteListResponse;
   children: ReactNode;
   setPage: (page: number) => void;
-
   setSearch: (search: string) => void;
 };
 
