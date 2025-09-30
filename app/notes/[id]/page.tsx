@@ -1,5 +1,9 @@
-import Details from "./NoteDetails.client";
+import NoteModal from "@/app/@modal/(.)notes/[id]/page";
 
-export default function NotesPage() {
-  return <Details />;
+type Props = {
+  params: { id: string };
+};
+
+export default function NotesPage({ params }: Props) {
+  return <NoteModal params={params} />;
 }
