@@ -6,18 +6,12 @@ import Button from "../Button/Button";
 
 type Props = {
   note: Note;
-  onClose: () => void;
 };
 
-const NotePreview = ({ note, onClose }: Props) => {
+const NotePreview = ({ note }: Props) => {
   return (
     <div className={css.container}>
-      <Button
-        typeBtn="button"
-        value="<- Back"
-        className={css.backBtn}
-        onClick={onClose}
-      />
+      <Button typeBtn="button" value="<- Back" className={css.backBtn} />
       <div className={css.header}>
         <h2>{note.title}</h2>
       </div>
