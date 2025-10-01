@@ -1,10 +1,10 @@
 "use client";
 import { Note } from "@/types/note";
-import Button from "../Button/Button";
 import css from "./NotePreview.module.css";
 
 import React from "react";
-import { useRouter } from "next/router";
+
+import Button from "../Button/Button";
 
 type Props = {
   data: Note;
