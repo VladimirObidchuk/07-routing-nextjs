@@ -1,5 +1,5 @@
-import NotePreviewDetails from "./NotePreview.client";
 import { fetchNoteById } from "@/lib/api";
+import NotePreviewDetails from "./NotePreview.client";
 
 type Props = {
   params: { id: string };

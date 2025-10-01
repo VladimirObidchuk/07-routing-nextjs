@@ -1,14 +1,14 @@
 "use client";
+
 import { Note } from "@/types/note";
 import css from "./NotePreview.module.css";
-
-import React from "react";
 import Button from "../Button/Button";
 
 type Props = {
   data: Note;
   onClose: () => void;
 };
+
 const NotePreview = ({ data, onClose }: Props) => {
   return (
     <div className={css.container}>
