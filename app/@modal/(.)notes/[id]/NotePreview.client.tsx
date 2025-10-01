@@ -18,7 +18,7 @@ const NotePreviewDetails = ({ note }: Props) => {
 
   return (
     <Modal onClose={handleClose}>
-      <NotePreview data={note} onClose={handleClose} />
+      <NotePreview note={note} onClose={handleClose} />
     </Modal>
   );
 };
