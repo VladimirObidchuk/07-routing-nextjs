@@ -3,7 +3,6 @@ import { Note } from "@/types/note";
 import css from "./NotePreview.module.css";
 
 import React from "react";
-
 import Button from "../Button/Button";
 
 type Props = {
