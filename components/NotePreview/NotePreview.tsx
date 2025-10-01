@@ -5,11 +5,11 @@ import css from "./NotePreview.module.css";
 import Button from "../Button/Button";
 
 type Props = {
-  note: Note;
+  data: Note;
   onClose: () => void;
 };
 
-const NotePreview = ({ note, onClose }: Props) => {
+const NotePreview = ({ data, onClose }: Props) => {
   return (
     <div className={css.container}>
       <Button
@@ -19,11 +19,11 @@ const NotePreview = ({ note, onClose }: Props) => {
         onClick={onClose}
       />
       <div className={css.header}>
-        <h2>{note.title}</h2>
+        <h2>{data.title}</h2>
       </div>
       <div className={css.content}>
-        <p className={css.content}>{note.content}</p>
-        <p className={css.tag}>Tag: {note.tag}</p>
+        <p className={css.content}>{data.content}</p>
+        <p className={css.tag}>Tag: {data.tag}</p>
       </div>
     </div>
   );

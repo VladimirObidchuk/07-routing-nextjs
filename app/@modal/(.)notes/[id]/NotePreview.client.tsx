@@ -6,10 +6,10 @@ import { Note } from "@/types/note";
 import { useRouter } from "next/navigation";
 
 type Props = {
-  note: Note;
+  data: Note;
 };
 
-const NotePreviewDetails = ({ note }: Props) => {
+const NotePreviewDetails = ({ data }: Props) => {
   const router = useRouter();
 
   const handleClose = () => {
@@ -18,7 +18,7 @@ const NotePreviewDetails = ({ note }: Props) => {
 
   return (
     <Modal onClose={handleClose}>
-      <NotePreview note={note} onClose={handleClose} />
+      <NotePreview data={data} onClose={handleClose} />
     </Modal>
   );
 };
